@@ -237,7 +237,7 @@ class PythonParser(GenericASTBuilder):
 
     def p_stmt(self, args):
         """
-        passstmt ::=
+        pass ::=
 
         _stmts ::= stmt+
 
@@ -252,7 +252,7 @@ class PythonParser(GenericASTBuilder):
         lastc_stmt ::= ifelsestmtc
 
         c_stmts_opt ::= c_stmts
-        c_stmts_opt ::= passstmt
+        c_stmts_opt ::= pass
 
         l_stmts ::= _stmts
         l_stmts ::= return_stmts
@@ -266,7 +266,7 @@ class PythonParser(GenericASTBuilder):
         lastl_stmt ::= tryelsestmtl
 
         l_stmts_opt ::= l_stmts
-        l_stmts_opt ::= passstmt
+        l_stmts_opt ::= pass
 
         suite_stmts ::= _stmts
         suite_stmts ::= return_stmts
@@ -275,7 +275,7 @@ class PythonParser(GenericASTBuilder):
         suite_stmts_opt ::= suite_stmts
 
         # passtmt is needed for semantic actions to add "pass"
-        suite_stmts_opt ::= passstmt
+        suite_stmts_opt ::= pass
 
         else_suite ::= suite_stmts
         else_suitel ::= l_stmts
